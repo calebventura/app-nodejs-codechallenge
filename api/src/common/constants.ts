@@ -1,0 +1,2 @@
+export const KAFKA_PRODUCER = 'KAFKA_PRODUCER';
+export const REDIS_CLIENT = 'REDIS_CLIENT';

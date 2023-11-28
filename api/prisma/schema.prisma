@@ -1,0 +1,21 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Transaction {
+  id                      Int      @id @default(autoincrement())
+  transactionExternalId   String   @unique @default(uuid())
+  accountExternalIdDebit  String
+  accountExternalIdCredit String
+  transferTypeId          Int
+  value                   Float
+  status                  String   @default("pending")
+  createdAt               DateTime @default(now())
+}
